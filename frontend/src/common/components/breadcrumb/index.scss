@@ -1,0 +1,20 @@
+@import '../../styles/global.scss';
+
+.breadcrumb{
+	background:$gray-100;
+	margin:10px auto 5px;
+
+	.breadcrumb-item{
+		*{color:$gray-200;
+
+			&:hover{
+				color:$gray-500;
+			}
+		}
+
+		&.active *{
+			color:$gray-100;
+			cursor: default;
+		}
+	}
+}

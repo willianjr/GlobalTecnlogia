@@ -1,0 +1,213 @@
+@import '../../styles/global.scss';
+
+div.crud {
+	header {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-content: flex-start;
+		align-items: stretch;
+		flex: 1;
+		border-bottom: 1px solid $gray-5;
+
+		> button {
+			margin: 0.25rem;
+			margin-left: auto;
+			display: flex!important;
+
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			span{
+				word-wrap: break-word;
+				width: 90%;
+				line-height: 1rem
+			}
+
+		}
+		.pesquisa{
+			@include border-radius(min);
+			background: $gray-5;
+			flex: 1;
+			padding: 0.5rem;
+			margin-right: 0.25rem;
+			form {
+				display: flex;
+				justify-content: space-around;
+				align-items: flex-start;
+				flex-direction: column;
+
+				div{
+					align-self: stretch;
+					margin-left: 0.25rem;
+					display: flex;
+					margin-bottom: 0rem;
+
+					&:last-child{
+						margin-left: auto;
+						display: flex;
+						align-self: center;
+						justify-content: center;
+						align-items: center;
+
+						button{
+							background: $gray-30;
+							transition: 0.2s all;
+							margin: 0.25rem;
+
+							&:hover{
+								background: $gray-50;
+
+								i{
+									font-size: 150%;
+
+								}
+							}
+							i{
+								transition: 0.1s all;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	table {
+		border-spacing: 0.1em;
+		border-collapse: separate;
+		position: relative;
+		margin: 1.5rem auto 0.5rem;
+		border: 1px solid $gray-20;
+		@include border-radius(min);
+		padding-bottom: 0.0rem;
+
+		caption {
+			caption-side: top;
+			padding-top: 0.05rem;
+		}
+
+		th,
+		td {
+			vertical-align: middle;
+		}
+
+		thead tr th {
+			background-color: $gray-10;
+			border: none;
+			@include border-radius(min);
+			position: relative;
+			padding: 0.55rem;
+
+			&.thCheck{
+				width: 1.5rem;
+
+				button{
+					padding: 0px;;
+					text-align: center;
+
+					i{
+						margin: 0px;
+					}
+				}
+
+			}
+
+			button {
+				position: absolute;
+				right: 0px;
+				top: 50%;
+				transform: translateY(-50%);
+
+
+				&:active i
+				{
+				 color: $gray-10
+			 	}
+
+				i {
+					vertical-align: middle;
+					text-align: center;
+					transition: 0.5s all;
+					flex: 1;
+					display: flex;
+
+				}
+			}
+		}
+
+		td {
+			padding: 0.20rem;
+
+			&.tdCheck {
+				text-align: center;
+
+				button {
+					margin: 0px auto;
+
+					&:active i
+				 	{
+						color: $gray-10
+					}
+
+					i {
+						transition: 0.5s all;
+					}
+				}
+			}
+
+			&.tdActions {
+				text-align: center;
+			}
+
+			&.noactives {
+				color: $gray-100;
+			}
+
+			.no-register {
+				background: $gray-5;
+				padding: 0.5rem;
+				margin: 0px;
+				@include border-radius(min);
+				text-align: center;
+				align-items: center;
+
+				/*position: relative;
+				bottom: 70px;*/
+				span {
+					flex: 1;
+				}
+			}
+
+			.footer {
+				background: $gray-5;
+				padding: 0.5rem;
+				margin: 0px;
+				@include border-radius(min);
+
+			}
+		}
+
+		tbody>tr>td:first-child {
+			text-indent: 0px;
+		}
+
+		tbody>tr>td {
+			text-indent: 5px;
+		}
+	}
+
+	.navPagination {
+		display: flex;
+
+		.pagination {
+			margin: 0px auto;
+
+			a {
+				cursor: pointer;
+			}
+		}
+	}
+
+
+}

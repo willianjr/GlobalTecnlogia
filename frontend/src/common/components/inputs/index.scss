@@ -1,0 +1,77 @@
+@import '../../styles/global.scss';
+
+.groupInput{
+
+	position: relative;
+
+	label{
+		color:$gray-500;
+		position: absolute;
+		top:50%;
+		left:0.5rem;
+		padding: 0.1rem 0.3rem;
+		font-weight: normal!important;
+		transform: translateY(-50%);
+		background-color: $white;
+
+		&.focus{
+
+			top:-0.5rem;
+			font-weight: 500!important;
+		}
+
+		transition: all 0.2s linear;
+	}
+input{
+
+		&.error{
+			border-color: $error;
+			&:focus{
+				border-color: $error;
+				box-shadow: 0 0 5px $error;
+			}
+		}
+		&:focus{
+			border-color:$gray-50;
+			box-shadow: 0 0 5px $gray-50;
+
+		}
+
+		transition: all 0.5s ease-in;
+
+	}
+
+	.messageError{
+		font-size: 0.7em;
+		padding: 0.25rem;
+		color:$white;
+		margin-left: 0.25rem;
+		@include border-radius('');
+		@include background-opacity($error, 0.75);
+
+		position: absolute;
+		top:-50%;
+		right: 0.5rem;
+		transform: translate(-50% 50%);
+
+	}
+
+}
+
+div.form-view{
+	input{
+		cursor:default;
+		border:none;
+	}
+
+}
+
+
+div.check{
+
+	input{
+	width: 15px;
+	height: 15px;
+	display: block;
+	}
+}

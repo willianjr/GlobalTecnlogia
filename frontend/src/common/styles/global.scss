@@ -1,0 +1,55 @@
+@import "./_colors.scss";
+
+body {
+}
+.content-wrapper {
+	.teste {
+		padding: 1rem;
+	}
+}
+
+select option[disabled] {
+	display: none;
+}
+
+form.formRegister {
+	.actions {
+		border-top: 1px solid $gray-5;
+		padding-top: 0.5rem;
+	}
+}
+
+div.StatusCluster {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	i {
+		display: flex;
+		font-size: 21rem;
+		color: $red;
+	}
+	&.green i {
+		color: $green;
+	}
+}
+
+@mixin border-radius($type) {
+	border-radius: 0.25rem;
+
+	@if $type== "min" {
+		border-radius: 0.5rem;
+	}
+	@if $type== "med" {
+		border-radius: 1rem;
+	}
+	@if $type== "max" {
+		border-radius: 1.5rem;
+	}
+}
+
+@mixin background-opacity($color, $opacity: 0.3) {
+	background: $color; /* The Fallback */
+
+	background: rgba($color, $opacity);
+}
