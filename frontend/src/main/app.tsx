@@ -21,30 +21,22 @@ export default function APP (){
 	const authState:any = useSelector<ApplicationState>(state => state.auth)
 
 	useEffect(() => {
-		if(auth.isAuthenticated()){
-			console.log(isLogado,auth.getToken())
-			setIsLogado(true)
-			console.log(isLogado,auth.getToken())
-		}
-	})
+		setIsLogado(auth.isAuthenticated())
+		const {nome,email} = auth.getUser()
+		setNomeUser(nome)
+		setEmailUser(email)
+	},[])
 
 	useEffect(() => {
-		console.log("APP: auth",authState)
-		if(authState.auth.token)
-		{
 			registerDados(authState.auth)
-		}
-		else{
-
-			setIsLogado(auth.isAuthenticated())
-			registerDados(auth.getUser())
-		}
-
 	}, [authState])
 	const registerDados = (data:any)=>{
 
-		setNomeUser(data.name||data.nome)
-		setEmailUser(data.email)
+		setIsLogado(auth.isAuthenticated())
+		const {nome,email} = auth.getUser()
+		setNomeUser(data.name||data.nome||nome)
+		setEmailUser(data.email||email)
+
 
 	}
     return(

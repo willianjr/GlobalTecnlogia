@@ -77,6 +77,12 @@ const reducer:Reducer<UsersState> = (state = INITIAL_STATE,action)=>{
 		case UsersTypes.DELETE_SUCCESS:
 				//console.log("delete")
 					return { ...state, loading: false }
+		case UsersTypes.CHANGEPAGE:
+			//console.log("changepage")
+			return { ...state,
+				crud:{...state.crud,
+					atualPage:action.payload.page}
+				}
 		case UsersTypes.ERROR:
 			console.log(action.payload)
 			return{

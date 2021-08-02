@@ -121,4 +121,16 @@ export function* save(action:any)
 	}
 }
 
+export function* changePage(action:any)
+{
+	try{
+		const {page,filter} = action.payload
+		yield put(userGetAll(filter))
+	}
+	catch(err)
+	{
+		console.log("GET Error")
+		yield put(userError(err))
+	}
+}
 

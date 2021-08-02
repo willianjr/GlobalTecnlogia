@@ -4,9 +4,10 @@ import {BrowserRouter,Switch,Route, RouteComponentProps, Redirect} from 'react-r
 import routes from '../common/configs/routes'
 import auth from '../main/services/auth'
 
-const {nivel} = auth.getUser()
 
-const PrivateRoute = ({ component: Component,isLogado, level, ...rest }:any) => (
+const PrivateRoute = ({ component: Component,isLogado, level, ...rest }:any) => {
+	const {nivel} = auth.getUser()
+	return(
   <Route
     {...rest}
     render={props =>
@@ -17,14 +18,14 @@ const PrivateRoute = ({ component: Component,isLogado, level, ...rest }:any) => 
       )
     }
   />
-);
+)}
 
 export const Routes = (props:any) => {
 	return(
 				<Switch>
 					{routes.map((route,index) => {
 						return(
-							route.auth || route.level ? (
+							route.auth ? (
 								<PrivateRoute
 									key={index}
 									path={route.path}

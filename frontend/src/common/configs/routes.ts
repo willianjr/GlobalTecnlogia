@@ -46,7 +46,7 @@ const routes: IRoute[] =[
 			component:UsuariosForm,
 			exact:true,
 			auth:true,
-			level:9
+			level:10
 		},
 		{
 			path:'/Usuarios/Editar/:id',

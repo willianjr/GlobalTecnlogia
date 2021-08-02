@@ -11,6 +11,7 @@ export enum  UsersTypes {
 	ERROR ='@users/ERROR',
 	SORT ='@users/SORT',
 	FILTER ='@users/FILTER',
+	CHANGEPAGE ='@users/CHANGEPAGE'
 
 }
 

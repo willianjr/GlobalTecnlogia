@@ -6,8 +6,9 @@ import { UserModel } from '../models/userModel'
 class UserController {
   public async getAll (req: Request, res: Response): Promise<Response> {
     try {
-      // const { page, limit, sort, filter } = req.query
-      // console.log(filter)
+      // const { page, limit } = req.query
+      // const skip = (+page * +limit) || 10
+      // const limite = +limit
       const UserRepository = await getConnection().getRepository(UserModel)
       const [list, totalRegister] = await UserRepository.findAndCount()
 

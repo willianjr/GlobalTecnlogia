@@ -72,10 +72,6 @@ const initialState:StateProps = {
   }
 	changePerPage(event:any){
 		const perPage:number = +event.target.value
-
-		 // perPage = página atual da pagination (momento da troca)
-		//Método para trocar a página
-		// onChangePerPage vem do pai, é resposável por disparar a action para a api retornar os dados do bd
 		const {onChangePerPage } = this.props
 		onChangePerPage && onChangePerPage(perPage)
 

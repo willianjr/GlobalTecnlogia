@@ -77,7 +77,7 @@ const efetuarLogout = () => new Promise((resolve, reject) =>{
 				const getNivelNumber = (nivel:string) => {
 					switch (nivel) {
 						case 'admin': return 100
-						case 'usr' : return
+						case 'usr' : return 1
 						default : return 0
 					}
 				}

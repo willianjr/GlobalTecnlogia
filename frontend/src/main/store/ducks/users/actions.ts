@@ -17,6 +17,6 @@ export const userSaveSuccess = (user:any) => action(UsersTypes.SAVE_SUCCESS, {us
 
 
 export const userSort = (sort:string,filter?:Crud) => action(UsersTypes.SORT,{sort,filter});
-
+export const userChangePage = (page:number,filter?:Crud) => action(UsersTypes.CHANGEPAGE,{page,filter});
 
 export const userFilter = (filters:object,filter?:Crud) => action(UsersTypes.FILTER,{filters,filter});

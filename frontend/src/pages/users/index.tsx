@@ -70,7 +70,7 @@ class UserList extends Component<Props>{
 									{
 										atualPage:atualPage,
 										totalRegister:totalRegister,
-										perPage:registerPerPage
+										perPage:100
 									}
 								}
 								onNew={()=>this.props.history.push('/Usuarios/Novo')}

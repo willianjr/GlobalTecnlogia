@@ -67,12 +67,13 @@ export default function LoginForm (props:Props) {
 	useEffect(() => {
 		if(currentState.auth.token)
 		{
-			console.log("LOGIN Auth: ",currentState.auth)
-			setIsLogado(true)
+			//console.log("LOGIN Auth: ",currentState.auth)
+			//setIsLogado(true)
 
 		}
 		else{
-			setIsLogado(auth.isAuthenticated())
+
+			//setIsLogado(auth.isAuthenticated())
 		}
 }, [currentState])
 
