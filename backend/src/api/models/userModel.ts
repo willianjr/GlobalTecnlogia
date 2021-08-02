@@ -1,8 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate } from 'typeorm'
-import { IsBooleanString, IsEmail, IsString, MaxLength, MinLength } from 'class-validator'
+import { IsEmail, IsString, MaxLength, MinLength } from 'class-validator'
 import bcrypt from 'bcryptjs'
 
 @Entity('user')
+
 export class UserModel {
   @PrimaryGeneratedColumn('uuid')
   _id:string;
@@ -12,7 +13,7 @@ export class UserModel {
   @MaxLength(50, { message: 'Favor inserir no máximo $constraint1 caracteres' })
   name: string;
 
-  @Column('varchar', { length: 150 })
+  @Column({ length: 150, unique: true })
   @IsEmail({}, { message: 'Favor fornecer um email válido' })
   @MaxLength(150, { message: 'Favor inserir no máximo $constraint1 caracteres' })
   email: string;
@@ -27,10 +28,6 @@ export class UserModel {
   @MinLength(2, { message: 'Favor inserir no mínimo $constraint1 caracteres' })
   @MaxLength(20, { message: 'Favor inserir no máximo $constraint1 caracteres' })
   nivel: string;
-
-  @Column()
-  @IsBooleanString({ message: 'Favor fornecer um valor boleano, "true" ou "false"' })
-  active: boolean;
 
   @CreateDateColumn()
   createdAt:Date
