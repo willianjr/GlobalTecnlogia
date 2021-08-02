@@ -28,10 +28,6 @@ class AuthController {
     }
   }
 
-  public async logout (req: Request, res: Response): Promise<Response> {
-    const { id } = req.params
-    return res.json({ message: 'getID', id })
-  }
 
   public async isLogin (req: Request, res: Response): Promise<Response> {
     try {
