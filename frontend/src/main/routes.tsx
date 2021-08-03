@@ -1,5 +1,5 @@
-import React from 'react';
-import {BrowserRouter,Switch,Route, RouteComponentProps, Redirect} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import {BrowserRouter,Switch,Route, RouteComponentProps, Redirect, useLocation, useHistory} from 'react-router-dom'
 
 import routes from '../common/configs/routes'
 import auth from '../main/services/auth'
@@ -21,7 +21,17 @@ const PrivateRoute = ({ component: Component,isLogado, level, ...rest }:any) => 
 )}
 
 export const Routes = (props:any) => {
+
+	let location = useLocation()
+	let history = useHistory()
+	useEffect(() => {
+			if(!auth.isAuthenticated()) {
+				history.push('/login')
+			}
+ 	},[location])
+
 	return(
+
 				<Switch>
 					{routes.map((route,index) => {
 						return(

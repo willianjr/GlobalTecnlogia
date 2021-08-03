@@ -18,6 +18,7 @@ export default function APP (){
 	const [nomeUser,setNomeUser] = useState('')
 	const [emailUser,setEmailUser] = useState('')
 
+
 	const authState:any = useSelector<ApplicationState>(state => state.auth)
 
 	useEffect(() => {
@@ -30,6 +31,9 @@ export default function APP (){
 	useEffect(() => {
 			registerDados(authState.auth)
 	}, [authState])
+
+
+
 	const registerDados = (data:any)=>{
 
 		setIsLogado(auth.isAuthenticated())

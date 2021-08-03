@@ -28,7 +28,6 @@ class AuthController {
     }
   }
 
-
   public async isLogin (req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params

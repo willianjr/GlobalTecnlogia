@@ -2,6 +2,8 @@ import api from '../../main/services/api'
 import {LoginForms} from '../../main/store/ducks/users/types'
 import {Auth} from '../../main/store/ducks/auth/types'
 import {toastr} from 'react-redux-toastr'
+import { ApplicationState } from '../store'
+import { authLogout } from '../store/ducks/auth/actions'
 
 
 
@@ -69,7 +71,34 @@ const efetuarLogout = () => new Promise((resolve, reject) =>{
 
 
 	const getToken = ()=> localStorage.getItem(KeyToken)
-	const isAuthenticated = () => localStorage.getItem(KeyToken) !== null
+	const isAuthenticated = () => {
+
+
+
+		if(localStorage.getItem(KeyToken) !== null)
+		{
+			api.get(`auth/${localStorage.getItem(KeyToken)}`)
+			.then((response) => {
+				console.log(response)
+				return true
+
+			})
+			.catch((error) => {
+				localStorage.removeItem(KeyToken)
+				return false
+		})
+		}
+		else
+		{
+			localStorage.removeItem(KeyToken)
+			localStorage.removeItem(KeyUser)
+			return false
+		}
+
+		return true
+
+
+	}
 	const getUser = ()=> {
 
 
